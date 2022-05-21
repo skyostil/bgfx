@@ -327,6 +327,13 @@ public:
 					// Set render states.
 					bgfx::setState(state);
 
+					// Don't render the last cube (top right), but just touch the view.
+					if (xx == 10 && yy == 10)
+					{
+						  bgfx::touch(0);
+						  break;
+					}
+
 					// Submit primitive for rendering to view 0.
 					bgfx::submit(0, m_program);
 				}
